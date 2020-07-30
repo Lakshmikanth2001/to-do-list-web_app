@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/6ba36a5a2e.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <!--BootStrap CDN for style sheets-->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="css/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="box" id="heading">
+        <h1> <%= kindOfday %>  </h1>
+    </div>
+    <div class="box">
+        <form method="post" id='items_list'>
+            <% NewItem.forEach(function(item) { %>
+                <div class="item">
+                    <input type="checkbox" name='check' value=<%=item._id %> >
+                    <p> <%= item.Name %> </p>
+                </div>
+            <% }); %>
+        </form>
+        <form class='item' method="post">
+            <input type="text" name="input_text" placeholder="New Item" autocomplete="off">
+            <button class='add_button' type="submit" name="addButton" value=<%= kindOfday %>>+</button>
+        </form>
+    </div>
+    <div class="Clear_section">
+        <button class="Clear_Button" form="items_list" type="submit" name='Clear_button' value='delete'>Clear</button>
+    </div>
+</body>
+</html>
